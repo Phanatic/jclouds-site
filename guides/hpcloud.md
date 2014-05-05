@@ -67,11 +67,16 @@ context.close();
 ## HP Cloud Compute
 
 {% highlight java %}
+// Set the API version for HP Cloud Compute in module overrides
+Properties properties = new Properties();
+properties.put("jclouds.api-version","2");
+
 // Get a context with hpcloud-compute that offers the portable ComputeService API
 ComputeServiceContext ctx = ContextBuilder.newBuilder("hpcloud-compute")
                       .credentials("tenantName:accessKey", "password")
                       .modules(ImmutableSet.<Module> of(new Log4JLoggingModule(),
                                                         new SshjSshClientModule()))
+                      .overrides(properties)
                       .buildView(ComputeServiceContext.class);
 
 ComputeService cs = ctx.getComputeService();
