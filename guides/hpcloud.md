@@ -67,6 +67,8 @@ context.close();
 ## HP Cloud Compute
 
 {% highlight java %}
+// If your account is using v13.5 of the HP Cloud Compute API
+// Please check [here](https://community.hpcloud.com/article/hp-public-cloud-quick-start-guide), and 
 // Set the API version for HP Cloud Compute in module overrides
 Properties properties = new Properties();
 properties.put("jclouds.api-version","2");
